@@ -1,21 +1,20 @@
-require('./bootstrap')
+require("./bootstrap")
 const express = require('express')
 const mongoose = require('mongoose')
 const routes = require('./routes')
 const databaseConfig = require('./config/database')
-
 
 class App {
   constructor() {
     this.server = express()
 
     this.middlewares()
-    this.database()
-    this.routes()
+    this.database();
+    this.routes();
   }
 
   middlewares() {
-    this.server(express.json())
+    this.server.use(express.json());
   }
 
   database() {
@@ -23,13 +22,12 @@ class App {
       useCreateIndex: true,
       useNewUrlParser: true,
       useUnifiedTopology: true
-    })
+    });
   }
 
   routes() {
-    this.server.use(routes)
+    this.server.use(routes);
   }
-
 }
 
 module.exports = new App().server
