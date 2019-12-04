@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const ToolSchema = mongoose.Schema({
+const ToolShema = mongoose.Schema({
   title: {
     type: String,
     required: true
@@ -15,9 +15,17 @@ const ToolSchema = mongoose.Schema({
   },
   tags: [
     {
-      type: String
+      type: String,
     }
   ]
+}, {
+  toJSON: {
+    transform: (doc, ret) => {
+      const tool = ret;
+      delete tool.__v;
+      return tool;
+    },
+  },
 })
 
-module.exports = mongoose.model("Tool", ToolSchema)
+module.exports = mongoose.model("Tool", ToolShema)
