@@ -20,6 +20,7 @@ module.exports = {
     'no-param-reassign': 'off',
     'func-names': ['error', 'never'],
     camelcase: 'off',
+    'no-plusplus': [2, { allowForLoopAfterthoughts: true }],
     'no-unused-vars': ['error', { argsIgnorePattern: 'next' }]
   }
 
