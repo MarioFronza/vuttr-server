@@ -1,0 +1,55 @@
+FORMAT: 1A
+
+# Group Tools
+
+## Tools Collection [/tools/{tool_id}/{?tag}]
+
+### List All Tools [GET]
++ Parameters
+    + tag (string, optional) - Tag name
+
++ Response 200 (application/json)
+
+        [
+          {
+            id: 2,
+            title: "json-server",
+            link: "https://github.com/typicode/json-server",
+            description: "Fake REST API based on a json schema. Useful for mocking and creating APIs for front-end devs to consume in coding challenges.",
+            tags: [
+                "api",
+                "json",
+                "schema",
+                "node",
+                "github",
+                "rest"
+            ]
+          },
+        ]
+
+
+### Create a New Tool [POST]
+
++ Request (application/json)
+    + Attributes (Tool)
+
++ Response 201 (application/json)
+    + Attributes (ToolCreated)
+
+
+### Delete a Tool [DELETE]
++ Parameters
+    + tool_id (string)
+
++ Response 204
+
+# Data Structures
+
+## Tool (object)
++ title (string) - Título da ferramenta
++ link (string) - Link da ferramenta
++ description (string) - Descrição da ferramenta
++ tags (array) - Array de tags da ferramenta
+
+## ToolCreated (Tool)
++ id (number) - Código da entidade
